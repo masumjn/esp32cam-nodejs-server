@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
-const server = require('http').Server(app);
+// const server = require('http').Server(app);
+const https = require('https');
 const url = require('url');
 
 const WebSocket = require('ws');
@@ -36,6 +37,13 @@ wss2.on('connection', function connection(ws) {
     console.log('received wss2: %s', message);
   });
 });
+
+const options = {
+  cert: fs.readFileSync('/key/R3.crt')
+};
+
+const server = https.createServer(options, app);
+
 
 server.on('upgrade', function upgrade(request, socket, head) {
   const pathname = url.parse(request.url).pathname;
