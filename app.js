@@ -43,7 +43,7 @@ wss2.on('connection', function connection(ws) {
 //   cert: fs.readFileSync('/key/R3.crt')
 // };
 
-const server = https.createServer(options, app);
+// const server = https.createServer(options, app);
 
 
 server.on('upgrade', function upgrade(request, socket, head) {
