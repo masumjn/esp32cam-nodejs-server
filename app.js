@@ -1,11 +1,11 @@
 const express = require('express');
 const app = express();
-// const server = require('http').Server(app);
-const https = require('https');
-const fs = require('fs');
+const server = require('http').Server(app);
+// const https = require('https');
+// const fs = require('fs');
 const url = require('url');
 
-const WebSocket = require('wss');
+const WebSocket = require('ws');
 
 const port = process.env.PORT || 3000;
 
@@ -39,9 +39,9 @@ wss2.on('connection', function connection(ws) {
   });
 });
 
-const options = {
-  cert: fs.readFileSync('/key/R3.crt')
-};
+// const options = {
+//   cert: fs.readFileSync('/key/R3.crt')
+// };
 
 const server = https.createServer(options, app);
 
