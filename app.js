@@ -4,6 +4,11 @@ const server = require('http').Server(app);
 // const https = require('https');
 // const fs = require('fs');
 const url = require('url');
+const cors = require('cors');
+
+app.use(cors({
+	origin: '*'
+}));
 
 const WebSocket = require('ws');
 
