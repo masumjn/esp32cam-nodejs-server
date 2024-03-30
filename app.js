@@ -2,6 +2,11 @@ const express = require('express');
 const app = express();
 const server = require('http').Server(app);
 const url = require('url');
+const cors = require('cors');
+
+app.use(cors({
+	origin: '*'
+}));
 
 const WebSocket = require('ws');
 
