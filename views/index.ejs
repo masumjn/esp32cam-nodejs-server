@@ -53,6 +53,7 @@
 
       ws.onmessage = function (message) {
         var url = URL.createObjectURL(message.data);
+        console.log(url);
         img.src = url;
       };
     </script>
