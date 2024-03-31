@@ -5,7 +5,7 @@ const url = require('url');
 const cors = require('cors');
 
 app.use(cors({
-	origin: '*'
+	origin: '*',
 }));
 
 const WebSocket = require('ws');
