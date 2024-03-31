@@ -1,19 +1,12 @@
 <!DOCTYPE html>
 <html>
   <%- include('./partials/head.ejs') %>
-
   <body
     class="text-light d-flex flex-column vh-100 align-items-center justify-content-center"
-    style="
-      margin: 0;
-      background-image: linear-gradient(310deg, #7928ca, #ff0080);
-    "
+    style="margin: 0;background-image:linear-gradient(310deg,#7928ca,#ff0080);"
   >
     <div class="">
-      <canvas
-        class="img-fluid vh-100 w-auto rounded-5 d-flex justify-content-center align-items-center"
-        id="canvas"
-      >
+      <canvas class="img-fluid vh-100 w-auto rounded-5 d-flex justify-content-center align-items-center" id="canvas">
         <!-- <canvas
     class="img-fluid rounded-5"
     id="canvas"
@@ -22,106 +15,6 @@
         Mohon maaf, browser Anda tidak didukung &lt;canvas&gt;.
       </canvas>
     </div>
-
-    <video id="videoInput" class="img-fluid rounded-5 d-none" controls></video>
-    <img id="videoOutput" class="img-fluid rounded-5" />
-    <h1 id="countPeople"></h1>
-    <script>
-      // var countPeopleElement = document.getElementById("countPeople").innerHTML;
-      let video;
-      let detector;
-      let detections = [];
-
-      function preload() {
-        detector = ml5.objectDetector("cocossd");
-      }
-
-      function gotDetections(error, results) {
-        if (error) {
-          console.error(error);
-          return;
-        }
-        detections = results;
-
-        // Update the content of the element with id "countPeople"
-        var countPeopleElement = document.getElementById("countPeople");
-        countPeopleElement.textContent = detections.length;
-
-        console.log(detections); // Print detections to the console
-        console.log(detections.length);
-        detector.detect(video, gotDetections);
-        setInterval(updateStatus(detections.length), 10000);
-      }
-
-      function setup() {
-        createCanvas(640, 480);
-
-        // Replace with your video URL (or use a file input element)
-        // const videoSrc = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"; // Replace with your video URL
-        // const videoSrc = "videotest.mp4"; // Replace with your video URL
-        const videoSrc = "http://mownycamera.kq6wtm.easypanel.host/"; // Replace with your video URL
-        // const videoSrc = "https://node-esp32cam-masum-8a7cf1e41d93.herokuapp.com/"; // Replace with your video URL
-        // const videoSrc = "https://image.shutterstock.com/image-photo/happy-business-man-listening-discussion-260nw-2278518733.jpg"; // Replace with your video URL
-
-        video = createVideo(videoSrc, onVideoLoaded);
-        video.size(640, 480);
-        // video.size(160, 90);
-        video.hide();
-
-        // Hide the canvas after the model has loaded
-        document.getElementById("defaultCanvas0").classList.toggle("d-none");
-      }
-
-      function onVideoLoaded() {
-        video.loop();
-        video.volume(0); // Mute the video (optional)
-        video.play();
-        detector.detect(video, gotDetections);
-      }
-
-      function draw() {
-        image(video, 0, 0, 640, 480);
-
-        for (let i = 0; i < detections.length; i++) {
-          let object = detections[i];
-          // console.log(object.label);
-          if (object.label === "person") {
-            stroke(0, 255, 0);
-            strokeWeight(4);
-            noFill();
-            rect(object.x, object.y, object.width, object.height);
-            noStroke();
-            fill(255);
-            textSize(24);
-            text(object.label, object.x + 10, object.y + 24);
-          }
-        }
-
-        // Display the video stream on the img element
-        document.getElementById("videoOutput").src =
-          video.elt.currentTime > 0 ? canvas.toDataURL("image/jpeg") : "";
-      }
-
-      // Function to call PHP script with AJAX
-      function updateStatus() {
-        detStat = document.getElementById("countPeople").innerHTML;
-        // Ajax untuk mengubah status relay di MySQL
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function () {
-          if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            // Get respon from web after change value
-            document.getElementById("countPeople").innerHTML =
-              xmlhttp.responseText;
-          }
-        };
-
-        // Execute PHP file to change value on database
-        xmlhttp.open("GET", "database/updateDet.php?detStat=" + detStat, true);
-
-        // Send data
-        xmlhttp.send();
-      }
-    </script>
 
     <script>
       var portStr = "";
