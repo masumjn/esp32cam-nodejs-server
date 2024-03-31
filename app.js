@@ -6,7 +6,7 @@ const cors = require("cors");
 
 app.use(
   cors({
-    origin: ['*', 'https://mownylive.online/','localhost'],
+    origin: ['*', 'https://mownylive.online/','http://localhost/OptimizeDetect'],
     optionsSuccessStatus: 200,
   })
 );
