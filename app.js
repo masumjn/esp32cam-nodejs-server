@@ -19,15 +19,15 @@ var proxy = require("html2canvas-proxy");
 //   })
 // );
 
-// app.use(
-//   "/",
-//   cors({ origin: "*" }),
-//   // function (req, res, next) {}
-// );
+app.use(
+  "/",
+  cors({ origin: "https://mownylive.online/", optionsSuccessStatus: 200, }) // some legacy browsers (IE11, various SmartTVs) choke on 204),
+  // function (req, res, next) {}
+);
 
 // Enable CORS for specific routes
-app.use("/jpgstream_server", cors());
-app.use("/jpgstream_client", cors());
+// app.use("/jpgstream_server", cors());
+// app.use("/jpgstream_client", cors());
 
 // app.use('/', proxy());
 
