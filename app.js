@@ -15,7 +15,7 @@ var proxy = require("html2canvas-proxy");
 
 app.use(
   cors({
-    origin: "https://mownylive.online/",
+    origin: "*",
   })
 );
 
