@@ -13,10 +13,16 @@ var proxy = require("html2canvas-proxy");
 //   })
 // );
 
+// app.use(
+//   cors({
+//     origin: "*",
+//   })
+// );
+
 app.use(
-  cors({
-    origin: "*",
-  })
+  "/",
+  cors({ origin: "*" }),
+  function (req, res, next) {}
 );
 
 // app.use('/', proxy());
