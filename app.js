@@ -3,7 +3,7 @@ const app = express();
 const server = require("http").Server(app);
 const url = require("url");
 const cors = require("cors");
-var proxy = require('html2canvas-proxy');
+var proxy = require("html2canvas-proxy");
 
 // app.use(
 //   cors({
@@ -13,7 +13,11 @@ var proxy = require('html2canvas-proxy');
 //   })
 // );
 
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://mownylive.online/",
+  })
+);
 
 // app.use('/', proxy());
 
