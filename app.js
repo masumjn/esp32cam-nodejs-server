@@ -22,7 +22,7 @@ var proxy = require("html2canvas-proxy");
 app.use(
   "/",
   cors({ origin: "*" }),
-  function (req, res, next) {}
+  // function (req, res, next) {}
 );
 
 // app.use('/', proxy());
