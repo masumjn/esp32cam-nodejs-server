@@ -3,16 +3,10 @@
   <%- include('./partials/head.ejs') %>
   <body
     class="text-light d-flex flex-column vh-100 align-items-center justify-content-center"
-    style="
-      margin: 0;
-      background-image: linear-gradient(310deg, #7928ca, #ff0080);
-    "
+    style="margin: 0;background-image:linear-gradient(310deg,#7928ca,#ff0080);"
   >
     <div class="">
-      <canvas
-        class="img-fluid vh-100 w-auto rounded-5 d-flex justify-content-center align-items-center"
-        id="canvas"
-      >
+      <canvas class="img-fluid vh-100 w-auto rounded-5 d-flex justify-content-center align-items-center" id="canvas">
         <!-- <canvas
     class="img-fluid rounded-5"
     id="canvas"
@@ -57,14 +51,7 @@
         ); // destination rectangle
       };
 
-      var link = document.createElement("a");
-      link.download = "streamed_image.png";
-      link.href = canvas
-        .toDataURL("image/png")
-        .replace("image/png", "image/octet-stream");
-      link.click();
-      URL.revokeObjectURL(link.href);
-
+      
       ws.onmessage = function (message) {
         var url = URL.createObjectURL(message.data);
         // console.log(url);
