@@ -5,19 +5,19 @@ const url = require("url");
 const cors = require("cors");
 var proxy = require("html2canvas-proxy");
 
-// app.use(
-//   cors({
-//     // origin: ['*', 'https://mownylive.online/','http://localhost/OptimizeDetect'],
-//     origin: '*',
-//     optionsSuccessStatus: 200,
-//   })
-// );
-
 app.use(
   cors({
-    origin: "*",
+    // origin: ['*', 'https://mownylive.online/','http://localhost/OptimizeDetect'],
+    origin: '*',
+    optionsSuccessStatus: 200,
   })
 );
+
+// app.use(
+//   cors({
+//     origin: "*",
+//   })
+// );
 
 // app.use(
 //   "/",
@@ -31,7 +31,7 @@ app.use(
 // app.use("/jpgstream_server", cors());
 // app.use("/jpgstream_client", cors());
 
-// app.use('/', proxy());
+app.use('/', proxy());
 
 const WebSocket = require("ws");
 
