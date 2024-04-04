@@ -13,11 +13,11 @@ const cors = require("cors");
 //   })
 // );
 
-// app.use(
-//   cors({
-//     origin: "*",
-//   })
-// );
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 
 // app.use(
 //   "/",
