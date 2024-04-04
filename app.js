@@ -31,7 +31,7 @@ app.use(
 // app.use("/jpgstream_server", cors());
 // app.use("/jpgstream_client", cors());
 
-app.use('/', proxy());
+// app.use('/', proxy());
 
 const WebSocket = require("ws");
 
