@@ -10,6 +10,7 @@ const cors = require("cors");
 app.use(
   cors({
     origin: "*",
+    optionsSuccessStatus: 200
   })
 );
 
