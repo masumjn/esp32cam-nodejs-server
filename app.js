@@ -7,12 +7,14 @@ const cors = require("cors");
 
 
 
-app.use(
-  cors({
-    origin: '*',
-    optionsSuccessStatus: 200
-  })
-);
+// app.use(
+//   cors({
+//     origin: '*',
+//     optionsSuccessStatus: 200
+//   })
+// );
+
+app.use(cors());
 
 const WebSocket = require("ws");
 
