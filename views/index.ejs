@@ -68,12 +68,10 @@
       // Code to manipulate the canvas
       var canvas = document.getElementById("canvas");
       var ctx = canvas.getContext("2d");
-      ctx.fillStyle = "red";
-      ctx.fillRect(10, 10, 100, 100);
 
       // Convert canvas content to data URL
       var dataURL = canvas.toDataURL();
-
+      console.log(dataURL);
       // Send data URL to the parent page
       window.parent.postMessage(dataURL, "*");
     </script>
