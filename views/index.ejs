@@ -59,18 +59,10 @@
 
       ws.onmessage = function (message) {
         var url = URL.createObjectURL(message.data);
-        console.log(url);
+        // console.log(url);
         img.src = url;
       };
 
-      window.addEventListener("message", function (event) {
-        if (event.data === "takeSnapshot2") {
-          // Code to take snapshot and obtain data URL
-          var canvas = document.getElementById("canvas");
-          var dataURL = canvas.toDataURL();
-          window.parent.postMessage({ type: "imageData", data: dataURL }, "*");
-        }
-      });
     </script>
   </body>
 </html>
