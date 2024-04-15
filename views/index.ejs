@@ -64,9 +64,19 @@
       };
 
       window.addEventListener("message", function (event) {
+        // if (event.data === "takeSnapshot2") {
+        //   // Code to trigger snapshot in the iframe
+        //   // document.getElementById("canvas").toDataURL();
+        //   var theCanvas = document.getElementById("canvas");
+        //   var context = theCanvas.getContext("2d");
+        // }
+
         if (event.data === "takeSnapshot2") {
-          // Code to trigger snapshot in the iframe
-          document.getElementById('canvas').toDataURL();
+          // Code to take snapshot and obtain data URL
+          var canvas = document.getElementById("canvas");
+          var dataURL = canvas.toDataURL();
+          window.parent.postMessage(dataURL, "*");
+          console.log(dataURL);
         }
       });
     </script>
