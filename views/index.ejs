@@ -75,7 +75,7 @@
       var dataURL = canvas.toDataURL();
 
       // Send data URL to the parent page
-      window.parent.postMessage(dataURL, "http://localhost/");
+      window.parent.postMessage(dataURL, "*");
     </script>
   </body>
 </html>
