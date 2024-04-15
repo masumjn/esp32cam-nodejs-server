@@ -64,9 +64,9 @@
       };
 
       window.addEventListener("message", function (event) {
-        if (event.data === "takeSnapshot") {
+        if (event.data === "takeSnapshot2") {
           // Code to trigger snapshot in the iframe
-          // Example: document.getElementById('myCanvas').toDataURL();
+          document.getElementById('canvas').toDataURL();
         }
       });
     </script>
