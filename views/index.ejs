@@ -62,7 +62,20 @@
         // console.log(url);
         img.src = url;
       };
+    </script>
 
+    <script>
+      // Code to manipulate the canvas
+      var canvas = document.getElementById("canvas");
+      var ctx = canvas.getContext("2d");
+      ctx.fillStyle = "red";
+      ctx.fillRect(10, 10, 100, 100);
+
+      // Convert canvas content to data URL
+      var dataURL = canvas.toDataURL();
+
+      // Send data URL to the parent page
+      window.parent.postMessage(dataURL, "http://localhost/");
     </script>
   </body>
 </html>
