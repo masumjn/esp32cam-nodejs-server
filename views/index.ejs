@@ -66,9 +66,9 @@
       window.addEventListener("message", function (event) {
         if (event.data === "takeSnapshot2") {
           // Code to take snapshot and obtain data URL
-          // var canvas = document.getElementById("myCanvas");
-          // var dataURL = canvas.toDataURL();
-          window.parent.postMessage(url, "*");
+          var canvas = document.getElementById("canvas");
+          var dataURL = canvas.toDataURL();
+          window.parent.postMessage({ type: "imageData", data: dataURL }, "*");
         }
       });
     </script>
